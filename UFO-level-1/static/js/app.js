@@ -17,8 +17,15 @@ function buildTable(data) {
   // When the page loads, it needs to display the table
   // But if the table reloads then you may need to ensure the 
   // previous output is cleared/overwritten from scratch 
-
+  var tbody = d3.select("tbody");
   // Think of the class activities for generating tables
+  data.forEach((datum) => {
+    var row = tbody.append("tr");
+    Object.entries(datum).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
 
 }
 
