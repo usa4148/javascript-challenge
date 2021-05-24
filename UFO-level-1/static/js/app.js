@@ -7,6 +7,22 @@
 // provided comments for basic version of HW
 // included function names and filteredData variable
 
+// Select the filter-form
+var filterButton = d3.select("#filter-btn");
+var filterDate = d3.select("#datetime");
+var filterCity = d3.select("#city");
+var filterState = d3.select("#state");
+var filterCountry = d3.select("#country");
+var filterShape = d3.select("#shape");
+
+// Define the event handlers
+filterButton.on("click", handleClick);
+filterCity.on("submit", handleClick);
+filterDate.on("submit", handleClick);
+filterState.on("submit", handleClick);
+filterCountry.on("submit", handleClick);
+filterShape.on("submit", handleClick);
+
 // from data.js
 const tableData = data;
 
@@ -30,9 +46,11 @@ function buildTable(data) {
 }
 
 function handleClick() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
 
   // Grab the datetime value from the filter
-  
+  var dtvalue = d3.select("#datetime");
 
   // grab all the table data and set to filteredData
   
