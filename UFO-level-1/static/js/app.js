@@ -10,7 +10,7 @@
 // Select the filter-form
 var filterButton = d3.select("#filter-btn");
 var filterDate = d3.select("#datetime");
-var filterCity = d3.select("#city");
+var filterCity = d3.select("#city"); //.on("click", function() {updateCity(+this.value)});
 var filterState = d3.select("#state");
 var filterCountry = d3.select("#country");
 var filterShape = d3.select("#shape");
@@ -52,10 +52,18 @@ function buildTable(data) {
 
 }
 
+//function handleCityClick() {
+//    var cityElement = d3.select("#city");
+//    var cityValue = cityElement.property("value");
+//    var filteredData = tableData.filter(ufo => ufo.city === cityValue);
+//buildTable(filteredData)    
+//}
+
 function handleClick() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   console.log(d3.event.target);
+  console.log(d3.event.value)
 
   // Grab the datetime value from the filter
   var dtElement = d3.select("#datetime");
@@ -73,12 +81,24 @@ function handleClick() {
   var shapeElement = d3.select("#shape");
   var shapeValue = shapeElement.property("value");
 
-  var filteredData = tableData.filter(ufo => ufo.datetime === dtValue);
-  var filteredData = tableData.filter(ufo => ufo.city === cityValue);
+  var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
+                                          || ufo.city === cityValue 
+                                          || ufo.state === stateValue
+                                          || ufo.country === countryValue
+                                          || ufo.shape === shapeValue);
+  //                             .filter(ufo => ufo.city === cityValue)
+  //                             .filter(ufo => ufo.state === stateValue)
+  //                             .filter(ufo => ufo.country === countryValue)
+  //                             .filter(ufo => ufo.shape === shapeValue);
 
-  //filteredData = tableData.filter(ufo => ufo.state === stateValue);
-  //filteredData = tableData.filter(ufo => ufo.country === countryValue);
-  //filteredData = tableData.filter(ufo => ufo.shape === shapeValue);
+
+
+
+
+  //var filteredData = tableData.filter(ufo => ufo.city === cityValue);
+  //var filteredData = tableData.filter(ufo => ufo.state === stateValue);
+  //var filteredData = tableData.filter(ufo => ufo.country === countryValue);
+  //var filteredData = tableData.filter(ufo => ufo.shape === shapeValue);
 
 
 
