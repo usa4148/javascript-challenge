@@ -52,35 +52,42 @@ function buildTable(data) {
 
 }
 
+//function filterIt(filteredData) {
+//
+// return filteredData;
+//};
 
 function handleClick() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
-  console.log(d3.event.target);
-  console.log(d3.event.value)
+  //console.log(d3.event.target);
+  //console.log(d3.event.value)
+
+ 
+  //filterIt(filteredData);
 
   // Grab the datetime value from the filter
-  var dtElement = d3.select("#datetime");
-  var dtValue = dtElement.property("value");
+ var dtElement = d3.select("#datetime");
+ var dtValue = dtElement.property("value");
 
-  var cityElement = d3.select("#city");
-  var cityValue = cityElement.property("value");
+ var cityElement = d3.select("#city");
+ var cityValue = cityElement.property("value");
 
-  var stateElement = d3.select("#state");
-  var stateValue = stateElement.property("value");
+ var stateElement = d3.select("#state");
+ var stateValue = stateElement.property("value");
 
-  var countryElement = d3.select("#country");
-  var countryValue = countryElement.property("value");
+ var countryElement = d3.select("#country");
+ var countryValue = countryElement.property("value");
 
-  var shapeElement = d3.select("#shape");
-  var shapeValue = shapeElement.property("value");
+ var shapeElement = d3.select("#shape");
+ var shapeValue = shapeElement.property("value");
 
-  var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
-                                          || ufo.city === cityValue 
-                                          || ufo.state === stateValue
-                                          || ufo.country === countryValue
-                                          || ufo.shape === shapeValue);
- 
+ var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
+        || ufo.city === cityValue 
+        || ufo.state === stateValue
+        || ufo.country === countryValue
+        || ufo.shape === shapeValue);
+
   document.getElementById('datetime').value='';
   document.getElementById('city').value='';
   document.getElementById('state').value='';
@@ -100,6 +107,8 @@ function handleClick() {
   // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
   buildTable(filteredData);
 }
+
+
 
 // Attach an event to listen for the form button that calls handleClick on a click of the filter button
 
