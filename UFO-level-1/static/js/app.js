@@ -52,12 +52,6 @@ function buildTable(data) {
 
 }
 
-//function handleCityClick() {
-//    var cityElement = d3.select("#city");
-//    var cityValue = cityElement.property("value");
-//    var filteredData = tableData.filter(ufo => ufo.city === cityValue);
-//buildTable(filteredData)    
-//}
 
 function handleClick() {
   // Prevent the page from refreshing
