@@ -25,6 +25,7 @@ filterShape.on("submit", handleClick);
 
 // from data.js
 const tableData = data;
+var startData = tableData.slice(0,3);
 
 // get table references where table will be inserted
 
@@ -50,7 +51,25 @@ function handleClick() {
   d3.event.preventDefault();
 
   // Grab the datetime value from the filter
-  var dtvalue = d3.select("#datetime");
+  var dtElement = d3.select("#datetime");
+  var dtValue = dtElement.property("value");
+
+  var cityElement = d3.select("#city");
+  var cityValue = cityElement.property("value");
+
+  var stateElement = d3.select("#state");
+  var stateValue = stateElement.property("value");
+
+  var countryElement = d3.select("#country");
+  var countryValue = countryElement.property("value");
+
+  var shapeElement = d3.select("#shape");
+  var shapeValue = d3.select("value");
+
+  var filteredData = tableData.filter(ufo => ufo.datetime === dtValue);
+
+
+
 
   // grab all the table data and set to filteredData
   
@@ -73,5 +92,6 @@ function handleClick() {
 
 
 // Build the table when the page loads
-buildTable(tableData);
+//buildTable(tableData);
+buildTable(startData);
 
