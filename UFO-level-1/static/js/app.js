@@ -86,32 +86,18 @@ function handleClick() {
                                           || ufo.state === stateValue
                                           || ufo.country === countryValue
                                           || ufo.shape === shapeValue);
-  //                             .filter(ufo => ufo.city === cityValue)
-  //                             .filter(ufo => ufo.state === stateValue)
-  //                             .filter(ufo => ufo.country === countryValue)
-  //                             .filter(ufo => ufo.shape === shapeValue);
-
-
-
-
-
-  //var filteredData = tableData.filter(ufo => ufo.city === cityValue);
-  //var filteredData = tableData.filter(ufo => ufo.state === stateValue);
-  //var filteredData = tableData.filter(ufo => ufo.country === countryValue);
-  //var filteredData = tableData.filter(ufo => ufo.shape === shapeValue);
-
-
-
+ 
+  document.getElementById('datetime').value='';
+  document.getElementById('city').value='';
+  document.getElementById('state').value='';
+  document.getElementById('country').value='';                                        
+  document.getElementById('shape').value='';
 
   // grab all the table data and set to filteredData
   
   // Check to see if a date was entered and filter the
   // data using that date.
 
-
-  
-
-  
 
   // Rebuild the table using the filtered data
   //d3.select("tbody").remove();
