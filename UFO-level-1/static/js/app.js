@@ -17,11 +17,16 @@ var filterShape = d3.select("#shape");
 
 // Define the event handlers
 filterButton.on("click", handleClick);
-filterCity.on("submit", handleClick);
-filterDate.on("submit", handleClick);
-filterState.on("submit", handleClick);
-filterCountry.on("submit", handleClick);
-filterShape.on("submit", handleClick);
+//filterCity.on("submit", handleClick);
+//filterCity.on("click", handleClick);
+//filterDate.on("submit", handleClick);
+//filterDate.on("click", handleClick);
+//filterState.on("submit", handleClick);
+//filterState.on("click", handleClick);
+//filterCountry.on("submit", handleClick);
+//filterCountry.on("click", handleClick);
+//filterShape.on("submit", handleClick);
+//filterShape.on("click", handleClick);
 
 // from data.js
 const tableData = data;
@@ -34,6 +39,7 @@ function buildTable(data) {
   // When the page loads, it needs to display the table
   // But if the table reloads then you may need to ensure the 
   // previous output is cleared/overwritten from scratch 
+
   var tbody = d3.select("tbody");
   // Think of the class activities for generating tables
   data.forEach((datum) => {
@@ -49,6 +55,7 @@ function buildTable(data) {
 function handleClick() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
+  console.log(d3.event.target);
 
   // Grab the datetime value from the filter
   var dtElement = d3.select("#datetime");
@@ -64,9 +71,14 @@ function handleClick() {
   var countryValue = countryElement.property("value");
 
   var shapeElement = d3.select("#shape");
-  var shapeValue = d3.select("value");
+  var shapeValue = shapeElement.property("value");
 
   var filteredData = tableData.filter(ufo => ufo.datetime === dtValue);
+  var filteredData = tableData.filter(ufo => ufo.city === cityValue);
+
+  //filteredData = tableData.filter(ufo => ufo.state === stateValue);
+  //filteredData = tableData.filter(ufo => ufo.country === countryValue);
+  //filteredData = tableData.filter(ufo => ufo.shape === shapeValue);
 
 
 
@@ -82,6 +94,7 @@ function handleClick() {
   
 
   // Rebuild the table using the filtered data
+  //d3.select("tbody").remove();
   // @NOTE: If no date was entered, then filteredData will
   // just be the original tableData.
   // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
