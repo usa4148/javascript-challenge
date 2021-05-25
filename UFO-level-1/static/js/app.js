@@ -25,7 +25,7 @@ filterShape.on("submit", handleClick);
 
 // from data.js
 const tableData = data;
-var startData = tableData.slice(0,3);
+var startData = tableData.slice(0,1);
 
 // get table references where table will be inserted
 
