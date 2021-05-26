@@ -4,7 +4,7 @@ var data = [{
     state: "il",
     country: "us",
     shape: "tesla",
-    durationMinutes: "5 mins.",
+    durationMinutes: "5 nanoseconds",
     comments: "4 bright green circles high in the sky going in circles then one bright green light at my front door."
   },
   {
