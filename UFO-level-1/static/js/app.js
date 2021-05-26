@@ -41,6 +41,10 @@ function buildTable(data) {
   // previous output is cleared/overwritten from scratch 
 
   var tbody = d3.select("tbody");
+  // TG for this - https://www.tutorialsteacher.com/d3js/dom-manipulation-using-d3js
+  // Clear the table
+  tbody.html("");
+
   // Think of the class activities for generating tables
   data.forEach((datum) => {
     var row = tbody.append("tr");
@@ -52,58 +56,39 @@ function buildTable(data) {
 
 }
 
-//function filterIt(filteredData) {
-//
-// return filteredData;
-//};
-
 function handleClick() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
-  //console.log(d3.event.target);
-  //console.log(d3.event.value)
-
- 
-  //filterIt(filteredData);
-
+  
   // Grab the datetime value from the filter
- var dtElement = d3.select("#datetime");
- var dtValue = dtElement.property("value");
+  var dtElement = d3.select("#datetime");
+  var dtValue = dtElement.property("value");
 
- var cityElement = d3.select("#city");
- var cityValue = cityElement.property("value");
+  var cityElement = d3.select("#city");
+  var cityValue = cityElement.property("value");
 
- var stateElement = d3.select("#state");
- var stateValue = stateElement.property("value");
+  var stateElement = d3.select("#state");
+  var stateValue = stateElement.property("value");
 
- var countryElement = d3.select("#country");
- var countryValue = countryElement.property("value");
+  var countryElement = d3.select("#country");
+  var countryValue = countryElement.property("value");
 
- var shapeElement = d3.select("#shape");
- var shapeValue = shapeElement.property("value");
+  var shapeElement = d3.select("#shape");
+  var shapeValue = shapeElement.property("value");
 
- var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
+  var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
         || ufo.city === cityValue 
         || ufo.state === stateValue
         || ufo.country === countryValue
         || ufo.shape === shapeValue);
 
+  // grab all the table data and set to filteredData
   document.getElementById('datetime').value='';
   document.getElementById('city').value='';
   document.getElementById('state').value='';
   document.getElementById('country').value='';                                        
   document.getElementById('shape').value='';
 
-  // grab all the table data and set to filteredData
-  
-  // Check to see if a date was entered and filter the
-  // data using that date.
-
-
-  // Rebuild the table using the filtered data
-  //d3.select("tbody").remove();
-  // @NOTE: If no date was entered, then filteredData will
-  // just be the original tableData.
   // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
   buildTable(filteredData);
 }
