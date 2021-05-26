@@ -1,16 +1,17 @@
-// // from data.js
-// var tableData = data;
-
-// YOUR CODE HERE!
+// // // // // // // // // // // // // // //
+// 
+//  DS BootCamp - JavaScript-Challenge
+//
+//  Dan C.
+//
+// // // // // // // // // // // // // // //
 
 //starter file from TA - Erin Wills
-// provided comments for basic version of HW
-// included function names and filteredData variable
 
 // Select the filter-form
 var filterButton = d3.select("#filter-btn");
 var filterDate = d3.select("#datetime");
-var filterCity = d3.select("#city"); //.on("click", function() {updateCity(+this.value)});
+var filterCity = d3.select("#city"); 
 var filterState = d3.select("#state");
 var filterCountry = d3.select("#country");
 var filterShape = d3.select("#shape");
@@ -18,22 +19,10 @@ var filterShape = d3.select("#shape");
 // Define the event handlers
 filterButton.on("click", handleClick);
 //filterCity.on("submit", handleClick);
-//filterCity.on("click", handleClick);
-//filterDate.on("submit", handleClick);
-//filterDate.on("click", handleClick);
-//filterState.on("submit", handleClick);
-//filterState.on("click", handleClick);
-//filterCountry.on("submit", handleClick);
-//filterCountry.on("click", handleClick);
-//filterShape.on("submit", handleClick);
-//filterShape.on("click", handleClick);
 
 // from data.js
 const tableData = data;
 var startData = tableData.slice(0,1);
-
-// get table references where table will be inserted
-
 
 function buildTable(data) {
   // When the page loads, it needs to display the table
@@ -60,7 +49,8 @@ function handleClick() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
-  // Grab the datetime value from the filter
+  // get table references where table will be inserted
+  
   var dtElement = d3.select("#datetime");
   var dtValue = dtElement.property("value");
 
@@ -76,6 +66,7 @@ function handleClick() {
   var shapeElement = d3.select("#shape");
   var shapeValue = shapeElement.property("value");
 
+  // Grab the datetime value from the filter
   var filteredData = tableData.filter(ufo => ufo.datetime === dtValue 
         || ufo.city === cityValue 
         || ufo.state === stateValue
@@ -93,12 +84,6 @@ function handleClick() {
   buildTable(filteredData);
 }
 
-
-
-// Attach an event to listen for the form button that calls handleClick on a click of the filter button
-
-
 // Build the table when the page loads
-//buildTable(tableData);
 buildTable(startData);
 
